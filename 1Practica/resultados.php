@@ -3,6 +3,7 @@
 
 <?php include("./includes/header.php") ?>
 
+<br>
 <div class="container">
 	<h2 class="text-center">Votaciones </h2>
 	<div class="row">
