@@ -3,6 +3,9 @@
 <?php include("./randomSet.php") ?>
 
 <?php include("./includes/header.php") ?>
+<br>
+<br>
+<br>
 <div class="row">
 	<div class="col-md-6 offset-md-3">
 		<div class="card">
@@ -14,6 +17,8 @@
 					<div class="col-md-6">
 						<h4>Conjunto A</h4>
 						<?php
+							//$setA = new set([]);
+							//$setA->OtherConstructor($_SESSION['setA']);
 							$setA = new set(randomSet($_SESSION['setA']));
 							$setA->printSet();
 						?>
@@ -21,6 +26,8 @@
 					<div class="col-md-6">
 						<h4>Conjunto B</h4>
 						<?php
+							//$setB = new set([]);
+							//$setB->OtherConstructor($_SESSION['setB']);
 							$setB = new set(randomSet($_SESSION['setB']));
 							$setB->printSet();
 						?>

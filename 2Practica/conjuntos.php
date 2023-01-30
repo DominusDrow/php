@@ -1,6 +1,6 @@
 <?php
 class Set {
-	private $data;
+	private $data = [];
 
 	public function __construct($data)
 	{
@@ -62,11 +62,17 @@ class Set {
 	
 	public function printSet()
 	{
-		echo "<ul>";
-		foreach ($this->data as $value) {
-			echo "<li>$value</li>";
+		echo "{";
+		foreach ($this->data as $value) 
+			echo $value.", ";
+		echo "}";
+	}
+
+	public function OtherConstructor($size)
+	{
+		for ($i=0; $i < $size; $i++) {
+			$this->data[] = rand(1,20);
 		}
-		echo "</ul>";
 	}
 
 

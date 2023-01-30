@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	include("./conjuntos.php");
 	include("./randomSet.php");
 
 	if(isset($_POST['save_sets']))
