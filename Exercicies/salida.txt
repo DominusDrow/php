@@ -1,0 +1,4 @@
+Nombre: Maria Edad: 21
+Nombre: Alfredo Edad: 21
+Nombre: Omar Edad: 20
+Nombre: Alejandro Edad: 31
