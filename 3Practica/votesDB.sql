@@ -6,7 +6,7 @@ use votesDB;
 create table voters(
 		id int not null auto_increment,
 		name varchar(50) character set utf8mb4 collate utf8mb4_unicode_ci not null,
-		image varchar(50) not null,
+		image varchar(250) not null,
 		voted int not null default 0,
 		primary key(id)
 );
@@ -35,19 +35,19 @@ insert into parties (image, name) values ('./src/pan.png', 'Partido Acción Naci
 insert into parties (image, name) values ('./src/pt.png', 'Partido del Trabajo');
 insert into parties (image, name) values ('./src/nulo.png', 'Nulo');
 
-insert into voters (name, image) values ('Juan Perez', 'https://source.unsplash.com/random/400x400/?people');
-insert into voters (name, image) values ('Maria Lopez', 'https://source.unsplash.com/random/400x400/?people');
-insert into voters (name, image) values ('Pedro Sanchez', 'https://source.unsplash.com/random/400x400/?people');
-insert into voters (name, image) values ('Luisa Garcia', 'https://source.unsplash.com/random/400x400/?people');
-insert into voters (name, image) values ('Jose Martinez', 'https://source.unsplash.com/random/400x400/?people');
-insert into voters (name, image) values ('Maria Rodriguez', 'https://source.unsplash.com/random/400x400/?people');
-insert into voters (name, image) values ('Pedro Hernandez', 'https://source.unsplash.com/random/400x400/?people');
-insert into voters (name, image) values ('Luisa Ramirez', 'https://source.unsplash.com/random/400x400/?people');
-insert into voters (name, image) values ('Jose Lopez', 'https://source.unsplash.com/random/400x400/?people');
-insert into voters (name, image) values ('Maria Martinez', 'https://source.unsplash.com/random/400x400/?people');
-insert into voters (name, image) values ('Pedro Rodriguez', 'https://source.unsplash.com/random/400x400/?people');
-insert into voters (name, image) values ('Luisa Hernandez', 'https://source.unsplash.com/random/400x400/?people');
-insert into voters (name, image) values ('Jose Ramirez', 'https://source.unsplash.com/random/400x400/?people');
+insert into voters (name, image) values ('Juan Perez', 'https://source.unsplash.com/random/400x400/?person&id=1');
+insert into voters (name, image) values ('Maria Lopez', 'https://source.unsplash.com/random/400x400/?person&id=2');
+insert into voters (name, image) values ('Pedro Sanchez', 'https://source.unsplash.com/random/400x400/?person&id=3');
+insert into voters (name, image) values ('Luisa Garcia', 'https://source.unsplash.com/random/400x400/?person&id=4');
+insert into voters (name, image) values ('Jose Martinez', 'https://source.unsplash.com/random/400x400/?person&id=5');
+insert into voters (name, image) values ('Maria Rodriguez', 'https://source.unsplash.com/random/400x400/?person&id=6');
+insert into voters (name, image) values ('Pedro Hernandez', 'https://source.unsplash.com/random/400x400/?person&id=7');
+insert into voters (name, image) values ('Luisa Ramirez', 'https://source.unsplash.com/random/400x400/?person&id=8');
+insert into voters (name, image) values ('Jose Lopez', 'https://source.unsplash.com/random/400x400/?person&id=9');
+insert into voters (name, image) values ('Maria Martinez', 'https://source.unsplash.com/random/400x400/?person&id=10');
+insert into voters (name, image) values ('Pedro Rodriguez', 'https://source.unsplash.com/random/400x400/?person&id=11');
+insert into voters (name, image) values ('Luisa Hernandez', 'https://source.unsplash.com/random/400x400/?person&id=12');
+insert into voters (name, image) values ('Jose Ramirez', 'https://source.unsplash.com/random/400x400/?person&id=13');
 
 insert into votes (voter_id, party_id) values (1, 1);
 update voters set voted = 1 where id = 1;
