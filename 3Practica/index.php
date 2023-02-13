@@ -76,7 +76,7 @@
 <div class='col text-center'>
         <input type="radio" name="imgbackground" id="img5" class="d-none imgbgchk" value="PT">
             <label for="img5">
-              <img src="./src/pt.png" alt="image 5">
+              <img src="https://source.unsplash.com/random/400x400/?people" alt="image 5">
               <div class="tick_container">
                 <div class="tick"><i class="fa fa-check"></i></div>
               </div>
