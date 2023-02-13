@@ -19,14 +19,22 @@
 				</thead>
 				<tbody>
 					<?php
-					$query = "SELECT * FROM vote";
+					$query = "SELECT * FROM votes";
 					$result_votes = mysqli_query($conn, $query);
 
-					while($row = mysqli_fetch_assoc($result_votes)) { ?>
+					while($row = mysqli_fetch_assoc($result_votes)) { 
+						$query = "SELECT * FROM voters WHERE id = ".$row['voter_id'];
+						$result_voters = mysqli_query($conn, $query);
+						$voter = mysqli_fetch_assoc($result_voters);
+
+						$query = "SELECT * FROM parties WHERE id = ".$row['party_id'];
+						$result_parties = mysqli_query($conn, $query);
+						$party = mysqli_fetch_assoc($result_parties);
+					?>
 						<tr>
-							<td><?php echo $row['name'] ?></td>
-							<td><?php echo $row['political'] ?></td>
-							<td><?php echo $row['vote_date'] ?></td>
+							<td><?php echo $voter['name'] ?></td>
+							<td><?php echo $party['name'] ?></td>
+							<td><?php echo $row['date'] ?></td>
 						</tr>
 					<?php } ?>
 				</tbody>

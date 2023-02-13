@@ -12,7 +12,19 @@
 				<form action="save_vote.php" method="POST">
 					<div class="form-group
 						<?php if (isset($error)) { echo 'has-error'; } ?>">
-						<input type="text" name="nombre" class="form-control" placeholder="Nombre del Votante" required>
+						<select name="voter_id" class="form-select" required>
+							<option selected>Selecciona tu nombre</option>
+							<?php
+							$query = "SELECT * FROM voters WHERE voted = 0";
+							$result_voters = mysqli_query($conn, $query);
+
+							while($row = mysqli_fetch_assoc($result_voters)) { ?>
+								<option value="<?php echo $row['id'] ?>">
+									<?php echo $row['name'] ?>
+								</option>
+							<?php } ?>
+						</select>
+
 						<?php if (isset($error)) { ?>
 							<span class="help-block"><?php echo $error; ?></span>
 						<?php } ?>
@@ -21,81 +33,28 @@
 
 					<div class="container parent">
 						<div class="row">
-							
-
-<div class='col text-center'>
-        <input type="radio" name="imgbackground" id="img1" class="d-none imgbgchk" value="PRI">
-          <label for="img1">
-            <img src="./src/pri.png" alt="Image 1">
-            <div class="tick_container">
-              <div class="tick"><i class="fa fa-check"></i></div>
-            </div>
-            </label>
-          <p>Partido Revolucionario Institucional</p>
-        </div>
 
 
-<div class='col text-center'>
-        <input type="radio" name="imgbackground" id="img2" class="d-none imgbgchk" value="MORENA">
-          <label for="img2">
-            <img src="./src/morena.png" alt="Image 2">
+<?php
+$query = "SELECT * FROM parties";
+$result_parties = mysqli_query($conn, $query);
+
+while($row = mysqli_fetch_assoc($result_parties)) { ?>
+      <div class='col text-center'>
+        <input type="radio" name="imgbackground" id="<?php echo "img".$row['id'] ?>" class="d-none imgbgchk" value="<?php echo $row['id'] ?>">
+          <label for="<?php echo "img".$row['id'] ?>">
+          <img src="<?php echo $row['image'] ?>" alt="<?php echo $row['name'] ?>">
             <div class="tick_container">
               <div class="tick"><i class="fa fa-check"></i></div>
             </div>
           </label>
-          <p>Movimiento de Regeneración Nacional</p>
+          <p><?php echo $row['name'] ?></p>
         </div>
-
-<div class='col text-center'>
-        <input type="radio" name="imgbackground" id="img3" class="d-none imgbgchk" value="PRD">
-          <label for="img3">
-            <img src="./src/prd.png" alt="Image 3">
-            <div class="tick_container">
-              <div class="tick"><i class="fa fa-check"></i></div>
-            </div>
-          </label>
-          <p>Partido de la Revolución Democrática</p>
-        </div>
-
-
-</div>
-<div class="row">
-
-
-<div class='col text-center'>
-        <input type="radio" name="imgbackground" id="img4" class="d-none imgbgchk" value="PAN">
-            <label for="img4">
-              <img src="./src/pan.png" alt="image 4">
-              <div class="tick_container">
-                <div class="tick"><i class="fa fa-check"></i></div>
-              </div>
-            </label>
-          <p>Partido Acción Nacional</p>
-        </div>
-
-<div class='col text-center'>
-        <input type="radio" name="imgbackground" id="img5" class="d-none imgbgchk" value="PT">
-            <label for="img5">
-              <img src="https://source.unsplash.com/random/400x400/?people" alt="image 5">
-              <div class="tick_container">
-                <div class="tick"><i class="fa fa-check"></i></div>
-              </div>
-            </label>
-          <p>Partido del Trabajo</p>
-        </div>
-
-
-<div class='col text-center'>
-        <input type="radio" name="imgbackground" id="img6" class="d-none imgbgchk" value="NULO">
-            <label for="img6">
-              <img src="./src/nulo.png" alt="image 6">
-              <div class="tick_container">
-                <div class="tick"><i class="fa fa-check"></i></div>
-              </div>
-            </label>
-          <p>Anular voto</p>
-        </div>
-
+<?php
+  if($row['id'] % 3 == 0) echo "</div><div class='row'>";
+}
+?>
+						
 
               </div>
 						</div>
