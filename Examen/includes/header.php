@@ -22,6 +22,10 @@
 				<li class="nav-item">
 					<a class="nav-link " href="index.php">Examen</a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link " href="resultado.php">Resultado</a>
+				</li>
+
 			</ul>
 		</div>
 	</div>

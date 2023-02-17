@@ -38,6 +38,13 @@ insert into alquiler (id_usuario, id_pelicula, fecha_alquiler, fecha_devolucion)
 insert into alquiler (id_usuario, id_pelicula, fecha_alquiler, fecha_devolucion) values (2, 2, '2018-02-01', '2018-02-02');
 insert into alquiler (id_usuario, id_pelicula, fecha_alquiler, fecha_devolucion) values (3, 3, '2018-03-01', '2018-03-02');
 
+alter table pelicula add column imagen varchar(64);
+
+update pelicula set imagen = 'el_padrino.jpg' where id = 1;
+
+
+
+
 
 
 	
