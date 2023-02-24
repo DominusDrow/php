@@ -15,25 +15,29 @@
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
         <div class="card shadow-2-strong" style="border-radius: 1rem;">
           <div class="card-body p-5 text-center">
+            
+            <form action="index.php" method="POST">
 
-            <h3 class="mb-5">Sign in</h3>
+            <h3 class="mb-5">Inicio de seción</h3>
 
             <div class="form-outline mb-4">
-              <input type="email" id="typeEmailX-2" class="form-control form-control-lg" />
+              <input type="text" name="name" class="form-control form-control-lg" required />
               <label class="form-label" for="typeEmailX-2">Nombre</label>
             </div>
 
             <div class="form-outline mb-4">
-              <input type="password" id="typePasswordX-2" class="form-control form-control-lg" />
+              <input type="password" name="pass" class="form-control form-control-lg" required />
               <label class="form-label" for="typePasswordX-2">Contraseña</label>
             </div>
 
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Ingresar</button>
+            <button class="btn btn-primary btn-lg btn-block" name="submit">Ingresar</button>
 						
             <div class="text-center mt-3 small">
               <p>¿No tienes cuenta? <a href="register.php">Register</a></p>
             </div>
             <hr class="my-4">
+            
+            </form>
           </div>
         </div>
       </div>
@@ -41,8 +45,33 @@
   </div>
 </section>  
 
+<?php
+include ('db.php');
+global $conn;
 
+if(isset($_POST['submit'])){
+  $name = $_POST['name'];
+  $pass = $_POST['pass'];
+  
+  $query = "SELECT * FROM usuarios WHERE nombre = '$name' AND contrasena = '$pass'";
+  $result = mysqli_query($conn, $query);
+  
+  if(mysqli_num_rows($result) == 1){
+    $_SESSION['name'] = $name;
+    header('Location: home.php');
+  }else{
+  ?>
+  <div class="alert alert-danger position-absolute top-0 left-0" role="alert">
+    Usuario o contraseña incorrectos
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  <?php
+  }
+}
+?>
 
 <?php include ('./includes/footer.php') ?>
+
+
 
 

@@ -4,7 +4,7 @@ create database mascotasDB default character set utf8mb4 collate utf8mb4_unicode
 use mascotasDB;
 
 create table mascotas(
-		id int auto_increment primary key,
+		id int not null auto_increment,
 		nombre varchar(50) not null,
 		edad int not null,
 		raza varchar(50) not null,
@@ -13,24 +13,26 @@ create table mascotas(
 		descripcion varchar(50) not null,
 		foto varchar(50) not null,
 		estado int not null default 0,
+		primary key (id)
 	);
 
 	create table usuarios(
-		id int auto_increment primary key,
+		id int not null auto_increment,
 		nombre varchar(50) not null,
 		telefono varchar(50) not null,
 		contrasena varchar(50) not null,
 		mascota int not null,
+		primary key (id)
 	);
 
 	create table adopciones(
-		id int auto_increment primary key,
+		id int not null auto_increment,
 		id_mascota int not null,
 		id_usuario int not null,
 		fecha timestamp not null default current_timestamp,
-		primary key(id),
-		foreign key(id_mascota) references mascotas(id),
-		foreign key(id_usuario) references usuarios(id)
+		primary key (id),
+		foreign key (id_mascota) references mascotas(id),
+		foreign key (id_usuario) references usuarios(id)
 	);
 
 	insert into usuarios(nombre, telefono, contrasena, mascota) values('admin', '123456789', 'root', 0);

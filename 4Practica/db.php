@@ -1,9 +1,6 @@
 <?php
-
 session_start();
-	
-$conn = mysqli_connect('localhost', 'root', '', 'tasks');
-
+$conn = mysqli_connect('localhost', 'root', '', 'mascotasDB');
 ?>
 
 
