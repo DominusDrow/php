@@ -61,8 +61,8 @@ if(isset($_POST['submit'])){
     header('Location: home.php');
   }else{
   ?>
-  <div class="alert alert-danger position-absolute top-0 left-0" role="alert">
-    Usuario o contraseña incorrectos
+  <div class="alert alert-danger position-absolute top-0 end-0" role="alert">
+    Datos incorrectos o no existe el usuario
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
   <?php
