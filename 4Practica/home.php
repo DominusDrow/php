@@ -14,8 +14,16 @@
 <?php
 if(isset($_SESSION['name'])){
 ?>
-        <h3>Bienvenido <?= $_SESSION['name'] ?></h3>
-        <a href="logout.php" class="btn btn-danger">Cerrar sesión</a>
+
+<div class="card">
+  <img src="./src/usuario.jpg" class="card-img-top" alt="Foto de perfil">
+  <div class="card-body">
+    <h5 class="card-title">Nombre del usuario</h5>
+    <p class="card-text">Otros datos del usuario</p>
+  </div>
+</div>
+
+
 <?php
 }else{
 ?>
