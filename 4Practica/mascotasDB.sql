@@ -46,18 +46,29 @@ create table mascotas(
 	insert into usuarios(nombre, telefono, contrasena, mascota) values('Luisa', '123456789', '1234', 0);
 
 	
-	insert into mascotas(nombre, edad, raza, color, sexo, descripcion, foto) values('Firulais', 2, 'Pastor Aleman', 'Cafe', 'Macho', 'Es un perro muy serio', './src/firulais.jpg');
-	insert into mascotas(nombre, edad, raza, color, sexo, descripcion, foto) values('Luna', 1, 'Pastor Belga', 'Blanco', 'Hembra', 'Es un perro muy jugueton', './src/luna.jpg');
-	insert into mascotas(nombre, edad, raza, color, sexo, descripcion, foto) values('Pepito', 3, 'Border Colie', 'Cafe', 'Macho', 'Es un perro muy gracioso', './src/pepito.jpg');
-	insert into mascotas(nombre, edad, raza, color, sexo, descripcion, foto) values('Pepita', 2, 'Chihuaha', 'negro', 'Hembra', 'Es un perro muy cariñoso', './src/pepita.jpg');
+	insert into mascotas(nombre, edad, raza, color, sexo, descripcion, foto) values('Firulais', 2, 'Pastor Aleman', 'Cafe', 'Macho', 'Es un perro muy serio', './src/Firulais.jpg');
+	insert into mascotas(nombre, edad, raza, color, sexo, descripcion, foto) values('Luna', 1, 'Pastor Belga', 'Blanco', 'Hembra', 'Es un perro muy jugueton', './src/Luna.jpg');
+	insert into mascotas(nombre, edad, raza, color, sexo, descripcion, foto) values('Pepito', 3, 'Border Colie', 'Cafe', 'Macho', 'Es un perro muy gracioso', './src/Pepito.jpg');
+	insert into mascotas(nombre, edad, raza, color, sexo, descripcion, foto) values('Pepita', 2, 'Chihuaha', 'negro', 'Hembra', 'Es un perro muy cariñoso', './src/Pepita.jpg');
 	insert into mascotas(nombre, edad, raza, color, sexo, descripcion, foto) values('Roger', 2, 'Labrador', 'Gris', 'Macho', 'Es un perro muy serio', './src/Roger.jpg');
-	insert into mascotas(nombre, edad, raza, color, sexo, descripcion, foto) values('Lola', 1, 'Pastor Belga', 'Blanco', 'Hembra', 'Es un perro muy jugueton', './src/lola.jpg');
+	insert into mascotas(nombre, edad, raza, color, sexo, descripcion, foto) values('Lola', 1, 'Pastor Belga', 'Blanco', 'Hembra', 'Es un perro muy jugueton', './src/Lola.jpg');
 	insert into mascotas(nombre, edad, raza, color, sexo, descripcion, foto) values('Max', 3, 'Border Colie', 'Cafe', 'Macho', 'Es un perro muy gracioso', './src/Max.jpg');
 
 
 insert into adopciones(id_mascota, id_usuario) values(1, 2);
+update mascotas set estado = 1 where id = 1;
+update usuarios set mascota = 1 where id = 2;
+
 insert into adopciones(id_mascota, id_usuario) values(2, 3);
+update mascotas set estado = 1 where id = 2;
+update usuarios set mascota = 1 where id = 3;
+
+
 insert into adopciones(id_mascota, id_usuario) values(3, 4);
+update mascotas set estado = 1 where id = 3;
+update usuarios set mascota = 1 where id = 4;
+
+
 
 
 
