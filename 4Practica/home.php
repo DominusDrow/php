@@ -25,12 +25,19 @@ if(isset($_SESSION['name'])){
 ?>
 
 <div class="card">
-  <img src="./src/usuario.jpg" class="card-img-top" height="250" alt="...">
+  <img src="./src/usuario.png" class="card-img-top" height="250" alt="...">
   <div class="card-body">
   <h5 class="card-title text-center"><?php echo $nombre ?></h5>
     <p class="card-text text-center">Tel:<?php echo $telefono ?></p>
     <p class="card-text text-center"><?php echo $mascotas ?> adopciones</p>
   </div>
+
+  <div class="d-flex justify-content-center">
+    <form method="post" action="pdfUsuario.php">
+      <button class="btn btn-secondary" name="pdfU">PDF</button>
+    </form>
+  </div>
+
 </div>
 
 <?php } ?>
