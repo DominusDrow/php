@@ -58,7 +58,10 @@ if(isset($_POST['submit'])){
   
   if(mysqli_num_rows($result) == 1){
     $_SESSION['name'] = $name;
-    header('Location: home.php');
+    if($name == 'admin')
+      header("Location: usuarios.php");
+    else
+      header('Location: home.php');
   }else{
   ?>
   <div class="alert alert-danger position-absolute top-50 start-50 translate-middle" role="alert">

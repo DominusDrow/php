@@ -19,13 +19,22 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav">
+				<?php session_start();
+					if($_SESSION['name'] == "admin"){ ?>
+				<li class="nav-item">
+					<a class="nav-link " href="usuarios.php">Usuarios</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link " href="mascotas.php">Mascotas</a>
+				</li>
+				<?php }else{ ?>
 				<li class="nav-item">
 					<a class="nav-link " href="home.php">Perfil</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link " href="mascotas.php">Mascotas</a>
 				</li>
-				
+				<?php }?>
 			</ul>
 		</div>
 
