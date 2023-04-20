@@ -79,7 +79,7 @@
 					<i class="fas fa-marker"></i>
 				</a>
 
-				<a href="delate_pet.php?nombre=<?php echo $row['nombre']?>" class="btn btn-danger">
+				<a href="delate_pet.php?nombre=<?php echo $row['nombre']?>" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar esta mascota?')">
 					<i class="far fa-trash-alt"></i>
 				</a>
 

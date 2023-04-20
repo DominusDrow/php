@@ -1,5 +1,6 @@
 <?php
 include ('db.php');
+
 if(isset($_GET['nombre'])){
 	$nombre = $_GET['nombre'];
 	$query = "SELECT * FROM `mascotas` WHERE `mascotas`.`nombre` = '$nombre'";
@@ -17,6 +18,7 @@ if(isset($_GET['nombre'])){
 	
 	}
 }
+
 if(isset($_POST['update'])){
 	$nombre = $_GET['nombre'];
 
@@ -29,10 +31,15 @@ if(isset($_POST['update'])){
 	$tmp_image = $_FILES['image']['tmp_name'];
 	$description = $_POST['description'];
 
-	if(copy($tmp_image, "/opt/lampp/htdocs/phpCurso/4Practica/src/" . $image))
-		$query = "UPDATE `mascotas` SET `nombre`='$name',`edad`='$age',`raza`='$race',`color`='$color',`sexo`='$sex',`descripcion`='$description',`foto`='$image' WHERE `mascotas`.`nombre` = '$nombre'";
-	else
+	if($image){
+		copy($tmp_image, "/opt/lampp/htdocs/phpCurso/4Practica/src/" . $image);
+
+		$query = "UPDATE `mascotas` SET `nombre`='$name',`edad`='$age',`raza`='$race',`color`='$color',`sexo`='$sex',`descripcion`='$description',`foto`='./src/$image' WHERE `mascotas`.`nombre` = '$nombre'";
+
+	}
+	else{
 		$query = "UPDATE `mascotas` SET `nombre`='$name',`edad`='$age',`raza`='$race',`color`='$color',`sexo`='$sex',`descripcion`='$description' WHERE `mascotas`.`nombre` = '$nombre'";
+	}
 
 	$result = mysqli_query($conn, $query);
 	if(!$result){
@@ -49,10 +56,10 @@ if(isset($_POST['update'])){
 	<div class="row">
 		<div class="col-md-4 mx-auto">
 			<div class="card card-body">
-				<form action="edit.php?id=<?php echo $_GET['nombre']; ?>" method="POST" enctype="multipart/form-data">
+				<form action="edit.php?nombre=<?php echo $_GET['nombre']; ?>" method="POST" enctype="multipart/form-data">
 
 					<div class="form-group m-2">
-						<img src="<?php echo $image;?>">
+						<img src="<?php echo $image;?>" width="300">
 					</div>
 
 					<div class="form-group m-2">
@@ -71,18 +78,13 @@ if(isset($_POST['update'])){
 						<input type="text" name="sex" value="<?php echo $sex;?>" class="form-control" placeholder="Sexo" autofocus required>
 					</div>
           <div class="form-group m-2">
-            <input class="form-control" type="file" name="image" required>
+            <input class="form-control" type="file" name="image">
           </div>
 
 					<div class="form-group m-2">
-						<textarea name="description" value="<?php echo $description;?> "rows="2" class="form-control" placeholder="Descripción"></textarea>
+						<textarea name="description" rows="2" class="form-control" placeholder="Descripción"><?php echo $description;?></textarea>
 					</div>
 	
-
-
-
-
-
 					<div class="row w-100 align-items-center">
 						<div class="col text-center">
 							<button class="btn btn-success btn-block" name="update">
