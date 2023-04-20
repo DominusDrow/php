@@ -11,9 +11,16 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="home.php">
-			Adopciones
-		</a>
+		<?php session_start();
+			if($_SESSION['name'] == "admin"){ ?>
+			<a class="navbar-brand" href="usuarios.php">
+				Adopciones
+			</a>
+		<?php }else{ ?>
+			<a class="navbar-brand" href="home.php">
+				Adopciones
+			</a>
+		<?php }?>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -25,7 +32,7 @@
 					<a class="nav-link " href="usuarios.php">Usuarios</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link " href="mascotas.php">Mascotas</a>
+					<a class="nav-link " href="mascotasAdmin.php">Mascotas</a>
 				</li>
 				<?php }else{ ?>
 				<li class="nav-item">
